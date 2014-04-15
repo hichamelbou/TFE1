@@ -4,8 +4,8 @@
  */
 package tfe.ecole.vue;
 
-import tfe.ecole.modele.Marque;
-import tfe.ecole.modele.Modele;
+import tfe.ecole.dao.DAOModele;
+import tfe.ecole.modele.Pojo_Modele;
 
 /**
  *
@@ -29,16 +29,12 @@ public class AjoutModele extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        identifiantmodeleTextField = new javax.swing.JTextField();
         libelleTextField = new javax.swing.JTextField();
 
-        jLabel1.setText("identifiant modele");
-
-        jLabel2.setText("libelle");
+        jLabel2.setText("modele");
 
         jButton1.setText("envoyer");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -54,60 +50,56 @@ public class AjoutModele extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(45, 45, 45)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(identifiantmodeleTextField)
-                    .addComponent(libelleTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(210, Short.MAX_VALUE)
+                .addGap(29, 29, 29)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(libelleTextField)
+                .addGap(2, 2, 2))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(162, 162, 162)
                 .addComponent(jButton1)
                 .addGap(18, 18, 18)
                 .addComponent(jButton2)
-                .addGap(40, 40, 40))
+                .addContainerGap(88, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(identifiantmodeleTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel2))
+                .addGap(43, 43, 43)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
                     .addComponent(libelleTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 136, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
-                .addGap(39, 39, 39))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-         Modele modele = new Modele();
-        String id=identifiantmodeleTextField.getText();
-            
-       modele.setIdModele(Integer.valueOf(id));
-         System.out.println(id);
+         Pojo_Modele modele = new Pojo_Modele();
+       // String id=identifiantmodeleTextField.getText();
+            modele.setIdModele(0);  
+     //modele.setIdModele(Integer.valueOf(id));
+      //   System.out.println(id);
          
          String libelle=libelleTextField.getText();
       modele.setDescription(libelle);
          System.out.println(libelle);
+          
+    
+         
+         
+          DAOModele.addModele(modele);
+          /*idmarque*/        
+          
     }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField identifiantmodeleTextField;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField libelleTextField;
     // End of variables declaration//GEN-END:variables

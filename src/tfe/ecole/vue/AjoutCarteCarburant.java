@@ -4,7 +4,8 @@
  */
 package tfe.ecole.vue;
 
-import tfe.ecole.modele.CarteCarburant;
+import tfe.ecole.dao.DAOCarteCarburant;
+import tfe.ecole.modele.Pojo_CarteCarburant;
 
 /**
  *
@@ -28,24 +29,20 @@ public class AjoutCarteCarburant extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        identifiantCarburantTextField = new javax.swing.JTextField();
         kmcarburantTextField2 = new javax.swing.JTextField();
         litrecarburantTextField = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
-        jLabel1.setText("identifiant carte carburant");
-
         jLabel2.setText("km carburant ");
 
         jLabel3.setText("litre carburant ");
 
-        identifiantCarburantTextField.addActionListener(new java.awt.event.ActionListener() {
+        litrecarburantTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                identifiantCarburantTextFieldActionPerformed(evt);
+                litrecarburantTextFieldActionPerformed(evt);
             }
         });
 
@@ -65,73 +62,66 @@ public class AjoutCarteCarburant extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(jLabel3))
-                        .addGap(57, 57, 57)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(identifiantCarburantTextField)
-                            .addComponent(kmcarburantTextField2)
-                            .addComponent(litrecarburantTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 314, Short.MAX_VALUE)))
+                        .addGap(239, 239, 239)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(304, 304, 304)
-                        .addComponent(jButton1)
-                        .addGap(33, 33, 33)
-                        .addComponent(jButton2)))
-                .addContainerGap(213, Short.MAX_VALUE))
+                        .addGap(14, 14, 14)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(14, 14, 14)
+                                .addComponent(litrecarburantTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(kmcarburantTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(28, 28, 28))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(39, 39, 39)
+                .addGap(46, 46, 46)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(identifiantCarburantTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(kmcarburantTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addGap(8, 8, 8)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(kmcarburantTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
                     .addComponent(litrecarburantTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 139, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
-                .addGap(98, 98, 98))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
      // TODO add your handling code here:
         
-     CarteCarburant  carte= new CarteCarburant();
-     String id=identifiantCarburantTextField.getText();
-     carte.setIdCarburant(Integer.valueOf(id));
+     Pojo_CarteCarburant  carte= new Pojo_CarteCarburant();
+ 
+     carte.setIdCarburant(0);
      String kmcarburant =kmcarburantTextField2.getText();
      carte.setKmUtilisaton(Integer.valueOf(kmcarburant));
      String litre=litrecarburantTextField.getText();
      carte.setLitreCarburant(Integer.valueOf(litre));
-       System.out.println(id);
+      
        System.out.println(kmcarburant);
        System.out.println(litre);
-
+        DAOCarteCarburant.addCarteCarburant(carte);
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void identifiantCarburantTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_identifiantCarburantTextFieldActionPerformed
+    private void litrecarburantTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_litrecarburantTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_identifiantCarburantTextFieldActionPerformed
+    }//GEN-LAST:event_litrecarburantTextFieldActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField identifiantCarburantTextField;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JTextField kmcarburantTextField2;

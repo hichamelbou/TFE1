@@ -4,7 +4,9 @@
  */
 package tfe.ecole.vue;
 
-import tfe.ecole.modele.Entretien;
+import tfe.ecole.dao.DAOEntretien;
+import java.util.Date;
+import tfe.ecole.modele.Pojo_Entretien;
 
 /**
  *
@@ -28,22 +30,20 @@ public class AjoutEntretien extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        identifiantentretienTextField1 = new javax.swing.JTextField();
         typenentretienTextField2 = new javax.swing.JTextField();
-        datedernierentretienTextField3 = new javax.swing.JTextField();
-        dateprochaineTextField4 = new javax.swing.JTextField();
         kmdernierentretienTextField5 = new javax.swing.JTextField();
         kmprochaineentretienTextField = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-
-        jLabel1.setText("identifiant entretien");
+        jDateChooserdernierent = new com.toedter.calendar.JDateChooser();
+        jDateChooserprochaineentretien = new com.toedter.calendar.JDateChooser();
+        jLabel10 = new javax.swing.JLabel();
+        jTextFieldcout = new javax.swing.JTextField();
 
         jLabel2.setText("description");
 
@@ -64,115 +64,129 @@ public class AjoutEntretien extends javax.swing.JPanel {
 
         jButton2.setText("annuler");
 
+        jLabel10.setText("cout");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
-                .addGap(58, 58, 58)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(typenentretienTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 325, Short.MAX_VALUE)
-                    .addComponent(identifiantentretienTextField1))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addComponent(jLabel3))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel6)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jDateChooserdernierent, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(65, 65, 65)
+                                        .addComponent(jLabel4)))
+                                .addGap(30, 30, 30)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(kmprochaineentretienTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jDateChooserprochaineentretien, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(typenentretienTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(jLabel5)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(kmdernierentretienTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(datedernierentretienTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel6)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(kmprochaineentretienTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(20, 20, 20))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel4)
-                            .addGap(36, 36, 36)
-                            .addComponent(dateprochaineTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addContainerGap()))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel10))
                         .addGap(27, 27, 27)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(61, 61, 61))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(kmdernierentretienTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE)
+                            .addComponent(jTextFieldcout))))
+                .addGap(0, 43, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(30, 30, 30)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(49, 49, 49))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(43, 43, 43)
+                .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(identifiantentretienTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(typenentretienTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4)
-                    .addComponent(datedernierentretienTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(dateprochaineTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(56, 56, 56)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6)
-                    .addComponent(kmprochaineentretienTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(kmdernierentretienTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
+                    .addComponent(typenentretienTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addGap(38, 38, 38)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jDateChooserdernierent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4))
+                        .addGap(38, 38, 38)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(kmdernierentretienTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6)
+                            .addComponent(kmprochaineentretienTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel10)
+                            .addComponent(jTextFieldcout, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(32, 32, 32))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jDateChooserprochaineentretien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
-                .addGap(42, 42, 42))
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-         Entretien entretien = new Entretien();
-         String id=identifiantentretienTextField1.getText();
+         Pojo_Entretien entretien = new Pojo_Entretien();
+       
              
-         entretien.setIdEntretien(Integer.valueOf(id));
-         System.out.println(id);
+         entretien.setIdEntretien(0);
+     
          
          String libelle=typenentretienTextField2.getText();
          entretien.setLibelle(libelle);
          System.out.println(libelle);
          String kmdernierEntretien=kmdernierentretienTextField5.getText();
-         entretien.setIdEntretien(Integer.valueOf(kmdernierEntretien));
+         entretien.setKmDernierEntretien(Integer.valueOf(kmdernierEntretien));
          System.out.println(kmdernierEntretien);
           String kmprochaineentretien=kmprochaineentretienTextField.getText();
-         entretien.setIdEntretien(Integer.valueOf(kmprochaineentretien));
-     System.out.println(kmprochaineentretien);
+         entretien.setProchaineEntretien(Integer.valueOf(kmprochaineentretien));
+         System.out.println(kmprochaineentretien);
+         Date datedernier = (jDateChooserdernierent.getJCalendar().getDate());
+         entretien.setDateDernierEntretien(datedernier);
+         System.out.println(datedernier);
+         Date dateprochaine = (jDateChooserprochaineentretien.getJCalendar().getDate());
+         entretien.setDateProchaineEntretien(dateprochaine);
+          System.out.println(dateprochaine);
         
-        
+      
+         String cout =jTextFieldcout.getText();
+         entretien.setCout(Double.valueOf(cout));
+     
+     
+        DAOEntretien.addEntretien(entretien);
+     
     }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField datedernierentretienTextField3;
-    private javax.swing.JTextField dateprochaineTextField4;
-    private javax.swing.JTextField identifiantentretienTextField1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
+    private com.toedter.calendar.JDateChooser jDateChooserdernierent;
+    private com.toedter.calendar.JDateChooser jDateChooserprochaineentretien;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JTextField jTextFieldcout;
     private javax.swing.JTextField kmdernierentretienTextField5;
     private javax.swing.JTextField kmprochaineentretienTextField;
     private javax.swing.JTextField typenentretienTextField2;
